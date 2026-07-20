@@ -1,0 +1,72 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://docs.echo3d.com/api and
+  https://api.echo3d.com/.well-known/openid-configuration
+docs: https://docs.echo3d.com/quickstart/get-api-key
+summary:
+  types:
+  - apiKey
+  - oidc
+  api_key_in:
+  - query
+  - body
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+schemes:
+- name: CollectionKey
+  type: apiKey
+  in: query
+  parameter: key
+  required: true
+  description: >-
+    The target collection API key (e.g. some-words-1234). Identifies the echo3D
+    collection the request operates on. Passed as a query parameter on GET
+    endpoints and as form-body data on POST endpoints.
+  sources:
+  - https://docs.echo3d.com/api/queries
+- name: AccountEmail
+  type: apiKey
+  in: query
+  parameter: email
+  required: true
+  description: The account email address associated with the request.
+  sources:
+  - https://docs.echo3d.com/api/queries
+- name: UserKey
+  type: apiKey
+  in: query
+  parameter: userKey
+  required: true
+  description: >-
+    The personal authentication key for the account, obtained from the console
+    Security section. Combined with key + email to authenticate API calls.
+  sources:
+  - https://docs.echo3d.com/api/queries
+- name: SecretKey
+  type: apiKey
+  in: query
+  parameter: secKey
+  required: false
+  description: >-
+    Optional collection secret key. Required only when secret-key protection is
+    enabled on the collection via the console Security tab, adding a shared
+    secret to every API call.
+  sources:
+  - https://docs.echo3d.com/web-console/manage-pages/collections-and-sharing/security
+- name: ConsoleOIDC
+  type: openIdConnect
+  openIdConnectUrl: https://api.echo3d.com/.well-known/openid-configuration
+  issuer: https://echo3d.us.auth0.com/
+  description: >-
+    OpenID Connect (Auth0) identity provider backing console/dashboard login and
+    account management. Separate from the collection API-key auth used by the
+    RESTful query API. Supports authorizationCode, clientCredentials,
+    refreshToken and device-code grants; PKCE (S256) supported.
+  sources:
+  - https://api.echo3d.com/.well-known/openid-configuration
+notes: >-
+  The echo3D RESTful data API (api.echo3d.com) is authenticated with an API-key
+  triple (key + email + userKey) plus an optional collection secKey — there are
+  no OAuth scopes on the data plane. OIDC/Auth0 governs console identity only.
