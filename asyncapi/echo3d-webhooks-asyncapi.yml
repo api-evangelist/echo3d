@@ -1,0 +1,107 @@
+asyncapi: 3.0.0
+info:
+  title: echo3D Webhooks
+  version: 1.0.0
+  description: >-
+    Event webhooks echo3D delivers to a subscriber-configured HTTPS endpoint
+    when actions occur in a collection. Generated from the echo3D webhook
+    documentation; every event shares one JSON payload shape where metadataKeys[i]
+    corresponds to metadataValues[i].
+  x-generated: '2026-07-19'
+  x-method: generated
+  x-source: https://docs.echo3d.com/web-console/automate-pages/workflows/webhooks
+  externalDocs:
+    url: https://docs.echo3d.com/web-console/automate-pages/workflows/webhooks
+defaultContentType: application/json
+servers:
+  subscriber:
+    host: subscriber-provided.example.com
+    protocol: https
+    description: >-
+      The HTTPS endpoint you register in the console Workflows > Webhooks tab.
+      Must be public HTTPS (no localhost/private addresses). echo3D sends an
+      HTTP POST with a JSON body to this URL when a configured trigger fires.
+channels:
+  events:
+    address: /
+    messages:
+      Upload:
+        $ref: '#/components/messages/WebhookEvent'
+      Processed:
+        $ref: '#/components/messages/WebhookEvent'
+      Edit:
+        $ref: '#/components/messages/WebhookEvent'
+      Delete:
+        $ref: '#/components/messages/WebhookEvent'
+      CollectionMetadataAdd:
+        $ref: '#/components/messages/WebhookEvent'
+      CollectionMetadataRemove:
+        $ref: '#/components/messages/WebhookEvent'
+      AssetMetadataAdd:
+        $ref: '#/components/messages/WebhookEvent'
+      AssetMetadataRemove:
+        $ref: '#/components/messages/WebhookEvent'
+      AssetStatusUpdate:
+        $ref: '#/components/messages/WebhookEvent'
+operations:
+  receiveEvent:
+    action: receive
+    channel:
+      $ref: '#/channels/events'
+    summary: Receive an echo3D event webhook (HTTP POST).
+components:
+  messages:
+    WebhookEvent:
+      name: WebhookEvent
+      title: echo3D webhook event
+      contentType: application/json
+      payload:
+        type: object
+        required: [event, apiKey]
+        properties:
+          event:
+            type: string
+            description: The trigger that fired.
+            enum:
+            - Upload
+            - Processed
+            - Edit
+            - Delete
+            - CollectionMetadataAdd
+            - CollectionMetadataRemove
+            - AssetMetadataAdd
+            - AssetMetadataRemove
+            - AssetStatusUpdate
+          apiKey:
+            type: string
+            description: The API key of the collection.
+          entryIds:
+            type: array
+            items: {type: string}
+            description: Affected entry/asset IDs (empty if not applicable).
+          metadataKeys:
+            type: array
+            items: {type: string}
+            description: Metadata keys involved (parallel to metadataValues).
+          metadataValues:
+            type: array
+            items: {type: string}
+            description: Metadata values involved (parallel to metadataKeys).
+          statuses:
+            type: array
+            items: {type: string}
+            description: Statuses involved (empty if not applicable).
+          versionIds:
+            type: array
+            items: {type: string}
+            description: Version IDs involved (empty if not applicable).
+        examples:
+        - name: Upload
+          payload:
+            event: Upload
+            apiKey: bold-sky-1234
+            entryIds: ['a1b2c3d4-5678-90ab-cdef-1234567890ab']
+            metadataKeys: []
+            metadataValues: []
+            statuses: []
+            versionIds: []

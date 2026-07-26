@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: searched
+status: published
+source: https://docs.echo3d.com/web-console/automate-pages/agents/mcp-server
+server:
+  name: echo3d
+  description: >-
+    The echo3D Model Context Protocol (MCP) server lets any MCP-compatible AI
+    client (Claude, ChatGPT, Gemini, Cursor, and others) manage an echo3D 3D
+    collection using natural language.
+  connection: >-
+    Connect an AI client by following the setup instructions on the MCP Server
+    page inside the echo3D console (console.echo3d.com); the console generates
+    the client configuration bound to your collection.
+  docs: https://docs.echo3d.com/web-console/automate-pages/agents/mcp-server
+  registry: https://www.pulsemcp.com/servers/echo3d
+tools:
+- name: list_assets
+  description: List assets in the connected echo3D collection.
+- name: upload_asset
+  description: Upload a new 3D asset to the collection.
+- name: convert_asset
+  description: Convert an asset to a different 3D file format.
+- name: compress_asset
+  description: Compress/optimize an asset.
+- name: tag_asset
+  description: Add tags/metadata to an asset.
+- name: search_assets
+  description: Search assets across the collection.
+notes: >-
+  Tool list is transcribed from the echo3D MCP documentation ("list, upload,
+  convert, compress, tag, and search assets just by asking"); exact tool names
+  and schemas are defined by the hosted server configuration surfaced in the
+  console.

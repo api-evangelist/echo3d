@@ -1,0 +1,33 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.echo3d.com/api
+versioning:
+  scheme: unversioned-endpoints
+  current: null
+  detail: >-
+    The RESTful API endpoints (https://api.echo3d.com/<resource>) carry no
+    version segment or version header. echo3D provides asset-level version
+    control as a product feature (create and revert to older versions of an
+    asset) documented at
+    https://docs.echo3d.com/web-console/manage-pages/content-page/version-control
+  docs: https://docs.echo3d.com/web-console/manage-pages/content-page/version-control
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: No published API deprecation policy or RFC 8594 Sunset/Deprecation header support found.
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: null
+  detail: >-
+    No public status page found (status.echo3d.com does not resolve; no status
+    link published on the site or docs as of this pass).
+support:
+  help_menu: https://docs.echo3d.com/web-console/help-menu
+  email: support@echo3d.com
+deprecated_operations: []
+notes: >-
+  echo3D publishes no versioning/deprecation policy, SLA, or status page.
+  Lifecycle signals here are recorded as absent (valid data), so no StatusPage
+  or Deprecation canonical pointer is emitted.

@@ -1,0 +1,88 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.echo3d.com/api/objects
+note: >-
+  Entity graph derived from the documented echo3D API object structures
+  (content entries, targets, holograms) and the upload response example.
+entities:
+- name: Collection
+  description: >-
+    A project/workspace identified by an API key that contains content entries,
+    users, groups, metadata taxonomy, and settings.
+  identifier: key
+  id_shape: "adjective-noun-NNNN (e.g. some-words-1234)"
+  relationships:
+  - has_many: ContentEntry
+    via: key
+  - has_many: GlobalData
+    via: key
+- name: ContentEntry
+  description: >-
+    A unit of content in a collection, pairing an AR target with one or more
+    holograms plus metadata, tags, status, versions, and hierarchy.
+  identifier: id
+  id_shape: uuid
+  relationships:
+  - belongs_to: Collection
+    via: key
+  - has_one: Target
+    via: target
+  - has_many: Hologram
+    via: holograms
+  - has_many: Metadata
+    via: data
+  - has_many: AssetVersion
+    via: versionIds
+  - has_one: AssetStatus
+    via: status
+  - belongs_to: ContentEntry
+    via: parent (asset hierarchy)
+- name: Target
+  description: >-
+    The AR anchor for an entry. Types: BRICK_TARGET (no target),
+    IMAGE_TARGET, GEOLOCATION_TARGET.
+  identifier: id
+  id_shape: uuid
+  fields: [type]
+  relationships:
+  - has_many: Hologram
+    via: holograms
+- name: Hologram
+  description: >-
+    The renderable asset attached to a target. Types: MODEL_HOLOGRAM,
+    VIDEO_HOLOGRAM, IMAGE_HOLOGRAM.
+  identifier: id
+  id_shape: uuid
+  fields:
+  - filename
+  - storageID
+  - textureFilenames
+  - textureStorageIDs
+  - materialFilename
+  - materialStorageID
+  - type
+  - targetID
+  relationships:
+  - belongs_to: Target
+    via: targetID
+- name: Metadata
+  description: Key/value pairs attached to an entry or collection (format key:value;...).
+  relationships:
+  - belongs_to: ContentEntry
+    via: entryId
+- name: GlobalData
+  description: Collection-level global data key/value entries (managed via /post and /get).
+  relationships:
+  - belongs_to: Collection
+    via: key
+- name: AssetVersion
+  description: A saved version of an asset that can be reverted to.
+  identifier: versionId
+  relationships:
+  - belongs_to: ContentEntry
+    via: entryId
+- name: AssetStatus
+  description: A status label assigned to an asset to track progress across teams.
+  relationships:
+  - belongs_to: ContentEntry
+    via: entryId

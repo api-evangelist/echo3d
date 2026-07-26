@@ -1,0 +1,33 @@
+generated: '2026-07-19'
+method: searched
+source: probed /.well-known/ across echo3D hosts
+hosts:
+- host: https://api.echo3d.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: echo3d-openid-configuration.json
+    note: >-
+      OIDC discovery for the echo3D console/dashboard identity provider
+      (Auth0 tenant echo3d.us.auth0.com); the RESTful query API uses
+      key/email/userKey auth, not this OIDC endpoint.
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://www.echo3d.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+- host: https://docs.echo3d.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404

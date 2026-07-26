@@ -1,0 +1,37 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.echo3d.com
+note: >-
+  Client-side / embeddable surfaces for rendering echo3D 3D and WebAR content,
+  distinct from the server-side SDKs catalogued in packages/.
+families:
+- family: React components
+  loader: npm echo3d
+  url: https://docs.echo3d.com/web/using-the-package
+  description: >-
+    React components (npm `echo3d`) for loading and rendering echo3D-hosted 3D
+    content in web applications.
+- family: iframe embed
+  url: https://github.com/echo3Dco/iframe-echo3D-examples
+  description: >-
+    HTML iframe embed snippets to drop echo3D 3D/AR content into any website or
+    app.
+- family: WebAR Customizer
+  url: https://docs.echo3d.com/web-console/manage-pages/content-page/web-customizer
+  description: >-
+    Console-generated hosted WebAR experiences that can be shared via link/QR or
+    embedded into a page.
+- family: Google Scene Viewer
+  url: https://docs.echo3d.com/scene-viewer/embed-into-website-or-app
+  description: >-
+    Deploy and embed echo3D assets through Google Scene Viewer for Android AR.
+- family: AR.js / FaceAR experiences
+  url: https://docs.echo3d.com/ar.js/embed-into-website-or-app
+  description: >-
+    Embeddable web-based AR (AR.js) and face-tracking AR (FaceAR) experiences
+    for the browser.
+- family: 3D Editor
+  url: https://docs.echo3d.com/web-console/manage-pages/editor
+  description: >-
+    In-console 3D editor/viewer for inspecting and fine-tuning meshes,
+    materials, and textures of echo3D assets.

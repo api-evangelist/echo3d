@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.echo3d.com/api
+format: plain
+envelope: >-
+  Errors return an HTTP status code with a short plain-text or JSON message in
+  the body (echo3D does not use RFC 9457 application/problem+json).
+problems:
+- status: 400
+  title: Invalid request
+  message: "Invalid request! No data value found in request."
+  cause: A required parameter (e.g. data/value) is missing or malformed.
+  remediation: Include all required parameters (key, email, userKey, and endpoint-specific fields).
+  source: https://docs.echo3d.com/api/data
+- status: 404
+  title: Data not found
+  message: "Data not found"
+  cause: The requested global data key or entry does not exist in the collection.
+  remediation: Verify the data key / entry ID exists in the target collection.
+  source: https://docs.echo3d.com/api/data
+- status: 404
+  title: Entry not found
+  cause: The referenced entry ID or file storage ID does not exist.
+  remediation: Query the collection to obtain valid entry IDs and storage IDs.
+  source: https://docs.echo3d.com/api/download
+- status: 401
+  title: Authentication failed
+  cause: Invalid or missing key/email/userKey (or secKey when secret-key protection is enabled).
+  remediation: >-
+    Confirm the collection key, account email, and user authentication key; add
+    the secret key if the collection has secret-key protection enabled.
+  source: https://docs.echo3d.com/quickstart/get-api-key
+- status: 200
+  title: Content successfully uploaded
+  note: >-
+    Successful uploads return a JSON asset object containing id, target (id,
+    type, holograms) and hologram (filename, storageID, textureStorageIDs,
+    materialStorageID, type). Not an error — documented here as the success
+    contract the error cases contrast with.
+  source: https://docs.echo3d.com/api/upload
+notes: >-
+  echo3D publishes per-endpoint response tabs (200/400/404, plus 302 redirect
+  on file download) rather than a consolidated error-code registry; the entries
+  above are transcribed from the documented response examples. No numeric
+  provider-specific error-code catalog is published.

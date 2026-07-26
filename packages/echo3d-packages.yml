@@ -1,0 +1,66 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  npm registry, echo3D docs (docs.echo3d.com), and the echo3Dco GitHub account
+  (github.com/echo3Dco)
+packages:
+- language: javascript
+  registry: npm
+  name: echo3d
+  url: https://www.npmjs.com/package/echo3d
+  install: npm install echo3d
+  version: 0.3.13
+  official: true
+  description: >-
+    React components designed to work with the echo3D platform API for loading
+    and rendering 3D content on the web.
+- language: python
+  registry: github
+  name: Python-echo3D-SDK
+  url: https://github.com/echo3Dco/Python-echo3D-SDK
+  install: git clone https://github.com/echo3Dco/Python-echo3D-SDK
+  official: true
+  description: First-party Python SDK for interacting with the echo3D API.
+- language: dart
+  registry: github
+  name: Flutter-echo3D-plugin
+  url: https://github.com/echo3Dco/Flutter-echo3D-plugin
+  install: git clone https://github.com/echo3Dco/Flutter-echo3D-plugin
+  official: true
+  description: Flutter plugin to fetch and display assets from echo3D.
+- language: csharp
+  registry: github
+  name: Unity SDK (echo3D)
+  url: https://docs.echo3d.com/unity/installation
+  install: Download the Unity SDK from the echo3D console Dev Tools page.
+  official: true
+  description: >-
+    First-party Unity SDK/plugin for streaming cloud-hosted 3D content and
+    adding AR capabilities.
+- language: cpp
+  registry: github
+  name: Unreal SDK (echo3D)
+  url: https://docs.echo3d.com/unreal/installation
+  install: Download the Unreal Engine plugin from the echo3D console Dev Tools page.
+  official: true
+  description: First-party Unreal Engine plugin for streaming models into Unreal applications.
+- language: swift
+  registry: github
+  name: Swift SDK (echo3D)
+  url: https://docs.echo3d.com/swift/installation
+  install: Download the Swift SDK from the echo3D console Dev Tools page.
+  official: true
+  description: First-party Swift SDK for iOS and visionOS integrations.
+- language: javascript
+  registry: docs
+  name: JavaScript SDK (echo3D)
+  url: https://docs.echo3d.com/javascript/installation
+  install: Download the JavaScript SDK from the echo3D console Dev Tools page.
+  official: true
+  description: First-party browser JavaScript SDK for loading echo3D content.
+notes: >-
+  echo3D also ships editor/DCC plugins (Blender add-on, Autodesk 3ds Max plugin,
+  Adobe Substance 3D Painter plugin, NVIDIA Omniverse) and React Native support;
+  these are distributed via the console Dev Tools page rather than public
+  package registries. The npm `echo3d` package is the only client library
+  published to a public registry as of this pass.

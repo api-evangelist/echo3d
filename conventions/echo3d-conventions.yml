@@ -1,0 +1,73 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.echo3d.com/api
+docs: https://docs.echo3d.com/api/queries
+authentication:
+  style: api-key-triple
+  parameters: [key, email, userKey]
+  optional: [secKey]
+  detail: >-
+    Every request carries the collection key, account email, and user
+    authentication key; secKey is added when the collection enables secret-key
+    protection. See authentication/echo3d-authentication.yml.
+base_url: https://api.echo3d.com
+transport:
+  request_encoding:
+    get: query-string parameters
+    post: multipart/form-data (uploads) or application/x-www-form-urlencoded
+  response_format: application/json
+  file_download: binary stream / 302 redirect to storage
+idempotency:
+  supported: false
+  deduplication:
+    mechanism: md5-checksum
+    detail: >-
+      Uploads are de-duplicated by an md5 checksum of the uploaded file; set
+      allowDuplicate=true to force a duplicate upload. This is content
+      de-duplication, not an idempotency-key contract — echo3D does not document
+      an Idempotency-Key header.
+pagination:
+  supported: false
+  detail: >-
+    Query endpoints return matching entries in a single JSON response; no
+    documented cursor/offset pagination. Result sets are narrowed with filters
+    (tags, filters, data key/value, type, timestamp range, geolocation).
+filtering:
+  params: [entry, entries, filename, data, value, tags, filters, type, fromTimestamp, toTimestamp, location, radius]
+  detail: >-
+    tags uses OR logic (match any); filters uses AND logic (match all). type
+    accepts MODEL_HOLOGRAM, VIDEO_HOLOGRAM, IMAGE_HOLOGRAM, BRICK_TARGET,
+    GEOLOCATION_TARGET, IMAGE_TARGET.
+metadata:
+  format: "key1:value1;key2:value2"
+  detail: >-
+    Metadata is attached to content via the data form field on upload; global
+    data entries are managed via /post and /get.
+async_processing:
+  detail: >-
+    Uploads trigger server-side processing (format conversion, screenshots).
+    By default the server waits up to 5 minutes for processing before returning
+    the full asset object; pass noProcessingWait=true to get basic asset data
+    immediately.
+versioning:
+  scheme: none-in-path
+  detail: >-
+    Endpoints are unversioned (https://api.echo3d.com/<resource>); no version
+    segment or version header is documented. Asset-level version control exists
+    as a product feature (create/revert asset versions).
+error_envelope:
+  style: plain-text-and-json
+  detail: >-
+    Errors return an HTTP status with a plain-text or JSON message
+    (e.g. "Invalid request! No data value found in request.", "Data not found").
+    Not RFC 9457 problem+json. See errors/echo3d-problem-types.yml.
+rate_limit_signaling:
+  documented: false
+  detail: >-
+    No rate-limit headers documented; usage is metered by subscription credits
+    (storage, bandwidth, conversions) rather than request-rate limits.
+cross_links:
+  authentication: authentication/echo3d-authentication.yml
+  errors: errors/echo3d-problem-types.yml
+  lifecycle: lifecycle/echo3d-lifecycle.yml
+  webhooks: asyncapi/echo3d-webhooks-asyncapi.yml

@@ -1,8 +1,31 @@
 aid: echo3d
 name: echo3D
-description: echo3D is a company surfaced as a portfolio company of techstars and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  echo3D is a cloud-based 3D digital asset management (DAM) platform that lets
+  enterprises and development teams store, secure, optimize, convert, version,
+  and share 3D models, animations, scans, and interactive AR/VR content across
+  their organization and beyond. It exposes a RESTful HTTP API at
+  api.echo3d.com for uploading, querying, downloading, converting, compressing,
+  organizing, and deleting 3D content entries in collections, plus first-party
+  SDKs and plugins for Unity, Unreal Engine, Swift/iOS, JavaScript/web, React,
+  React Native, Flutter, Python, Blender, NVIDIA Omniverse, Adobe Substance 3D,
+  and Autodesk 3ds Max. The platform adds event webhooks, an MCP server for AI
+  clients, AI agents for deduplication and watermarking, WebAR delivery, and
+  cross-platform 3D content optimization.
 url: https://raw.githubusercontent.com/api-evangelist/echo3d/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://static.wixstatic.com/media/c42fea_29a84adfa04046e69529e73ba3417d5d~mv2.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,15 +34,103 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- 3D
+- Augmented Reality
+- Virtual Reality
+- Digital Asset Management
+- 3D Models
+- Content Delivery
+- Developer Tools
+- SDKs
+- WebAR
+apis:
+- name: echo3D API
+  description: >-
+    RESTful HTTP API for storing, querying, uploading, downloading, converting,
+    compressing, organizing, versioning, and deleting 3D content entries
+    (targets and holograms) in echo3D collections. Requests authenticate with a
+    collection API key, account email, and user authentication key, with an
+    optional collection secret key.
+  humanURL: https://docs.echo3d.com/api
+  baseURL: https://api.echo3d.com
+  tags:
+  - 3D
+  - Digital Asset Management
+  - Augmented Reality
+  properties:
+  - type: Documentation
+    url: https://docs.echo3d.com/api
+  - type: APIReference
+    url: https://docs.echo3d.com/api/queries
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/echo3d-domain-security.yml
 - type: Website
-  url: https://echo3d.co/
+  url: https://www.echo3d.com/
+- type: DeveloperPortal
+  url: https://console.echo3d.com/
+- type: Documentation
+  url: https://docs.echo3d.com/
+- type: APIReference
+  url: https://docs.echo3d.com/api
+- type: GettingStarted
+  url: https://docs.echo3d.com/quickstart/get-api-key
+- type: SignUp
+  url: https://www.echo3d.com/signup
+- type: Login
+  url: https://console.echo3d.com/#/auth/login
+- type: Pricing
+  url: https://www.echo3d.com/pricing
+- type: Blog
+  url: https://www.echo3d.com/blog
+- type: GitHubOrganization
+  url: https://github.com/echo3Dco
+- type: Support
+  url: https://docs.echo3d.com/web-console/help-menu
+- type: TermsOfService
+  url: https://www.echo3d.com/terms
+- type: PrivacyPolicy
+  url: https://www.echo3d.com/privacy
+- type: Webhooks
+  url: https://docs.echo3d.com/web-console/automate-pages/workflows/webhooks
+- type: MCPServer
+  url: mcp/echo3d-mcp.yml
+- type: LLMsTxt
+  url: llms/echo3d-llms.txt
+- type: WellKnown
+  url: well-known/echo3d-well-known.yml
+- type: Packages
+  url: packages/echo3d-packages.yml
+- type: SDKs
+  url: packages/echo3d-packages.yml
+- type: Authentication
+  url: authentication/echo3d-authentication.yml
+- type: OAuthScopes
+  url: scopes/echo3d-scopes.yml
+- type: Conventions
+  url: conventions/echo3d-conventions.yml
+- type: ErrorCatalog
+  url: errors/echo3d-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/echo3d-lifecycle.yml
+- type: DataModel
+  url: data-model/echo3d-data-model.yml
+- type: Components
+  url: components/echo3d-components.yml
+- type: Conformance
+  url: conformance/echo3d-conformance.yml
+- type: AsyncAPI
+  url: asyncapi/echo3d-webhooks-asyncapi.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
