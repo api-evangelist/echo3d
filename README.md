@@ -64,6 +64,120 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-echo3D is a company surfaced as a portfolio company of techstars and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+echo3D is a cloud-based 3D digital asset management (DAM) platform that lets enterprises and development teams store, secure, optimize, convert, version, and share 3D models, animations, scans, and interactive AR/VR content across their organization and beyond. It exposes a RESTful HTTP API at api.echo3d.com for uploading, querying, downloading, converting, compressing, organizing, and deleting 3D content entries in collections, plus first-party SDKs and plugins for Unity, Unreal Engine, Swift/iOS, JavaScript/web, React, React Native, Flutter, Python, Blender, NVIDIA Omniverse, Adobe Substance 3D, and Autodesk 3ds Max. The platform adds event webhooks, an MCP server for AI clients, AI agents for deduplication and watermarking, WebAR delivery, and cross-platform 3D content optimization.
 
-Backed by: techstars — https://echo3d.co/
+**Areas:** Company · 3D · Augmented Reality · Virtual Reality · Digital Asset Management · 3D Models · Content Delivery · Developer Tools · SDK · WebAR
+
+## echo3D on APIs.io
+
+Everything profiled for echo3D is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/echo3d/](https://apis.io/providers/echo3d/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [echo3D API](https://apis.io/apis/echo3d/echo3d-api/) — RESTful HTTP API for storing, querying, uploading, downloading, converting, compressing, organizing, versioning, and deleting 3D content entries (targets…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [echo3D Webhooks](https://apis.io/asyncapis/echo3d/echo3d-webhooks-asyncapi/)
+
+#### Event channels (1)
+
+Individual events and webhooks the provider emits.
+
+- [/](https://apis.io/channels/echo3d/events/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [echo3d](https://apis.io/servers/echo3d/echo3d/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Echo3D Authentication](https://apis.io/security/echo3d/echo3d-authentication/)
+- [Echo3D Domain Security](https://apis.io/security/echo3d/echo3d-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Echo3D Scopes](https://apis.io/scopes/echo3d/echo3d-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.echo3d.com/)
+- [Documentation](https://docs.echo3d.com/)
+- [Getting started](https://docs.echo3d.com/quickstart/get-api-key)
+- [API reference](https://docs.echo3d.com/api)
+- [Pricing](https://www.echo3d.com/pricing)
+- [Sign up](https://www.echo3d.com/signup)
+- [Support](https://docs.echo3d.com/web-console/help-menu)
+- [Blog](https://www.echo3d.com/blog)
+- [Terms of service](https://www.echo3d.com/terms)
+- [Privacy policy](https://www.echo3d.com/privacy)
+- [GitHub](https://github.com/echo3Dco)
+
+## API Evangelist rating
+
+**Kin Score 43.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 39.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 64.3 |
+| Access clarity | 44.7 |
+
+**Agent readiness 32.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/echo3d/](https://apis.io/providers/echo3d/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for echo3D: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/echo3d/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
